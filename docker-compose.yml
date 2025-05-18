@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  server:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/whiteboard
+      - CLIENT_URL=http://localhost:5173
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:7
+    volumes:
+      - mongo_data:/data/db
+  client:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./client:/app
+    command: sh -c "npm install && npm run dev -- --host"
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_SERVER_URL=http://localhost:3001
+volumes:
+  mongo_data:

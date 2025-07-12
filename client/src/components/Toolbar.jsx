@@ -54,3 +54,5 @@ const styles = {
   divider: { width: 1, height: 28, background: '#475569', margin: '0 4px' },
   colorPicker: { width: 36, height: 36, border: 'none', borderRadius: 6, cursor: 'pointer', padding: 2 }
 };
+
+# feat-text-tool

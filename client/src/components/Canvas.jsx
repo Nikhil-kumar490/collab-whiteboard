@@ -114,3 +114,5 @@ function drawStroke(ctx, stroke) {
   }
   ctx.restore();
 }
+
+# perf-raf-redraw
